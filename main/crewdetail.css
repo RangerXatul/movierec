@@ -1,0 +1,294 @@
+body {
+    background-color: #1c1c1c;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.backgroundPicture img{
+    width: 100%; height: 300%;
+    margin-bottom: 90px;
+    
+}
+
+.movieDetail1 {
+    display: flex;
+    align-items: flex-start;
+    max-width: 82.5%; 
+    margin-bottom: 40px;
+    padding: 0 40px;
+    
+}
+
+.imageContainer{
+    width: 300px;
+    height: 450px;
+}
+
+.imageContainer img{
+    width: 300px;
+    height: 450px;
+}
+
+.metaContainer{
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    background-color: #1c1c1c6c;
+    border-radius: 15px;
+    margin-left: 35px;
+    padding: 20px 10px 10px 35px;
+    width: 1000px;
+    
+}
+
+.metaContainer p{
+   margin: 0px;
+}
+
+.metaContainer h1{
+    margin: 0px;
+ }
+
+.metaContainer1{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.metaContainer1 p{
+    font-size: 12px ;
+    color: #dfdcdc;
+    width: 95%;
+ }
+
+.metaContainer2{
+    display: flex;
+    flex-direction: row;
+    justify-items: left;
+    margin-bottom: 20px;
+}
+
+.metaContainer2 p{
+    text-align: center;
+    margin-right: 5px;
+ }
+
+.metaContainer3{
+    display: flex;
+    flex-direction: column;
+}
+
+.metaContainer3 p{
+font-size: 16px;
+width: 95%;
+margin-top: 5px;
+text-align: justify;
+line-height: 1.6;
+
+}
+
+.metaContainer3 h1{
+    width: 95%;
+    margin-top: 5px;
+}
+
+.castDetail{
+    color: rgb(255, 255, 255);
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.castContainer1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.castContainer1 h1{
+width: fit-content;
+}
+
+.castContainer1 button {
+    margin-left: 15px;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    font: inherit; /* Inherit font styles */
+    cursor: pointer; /* Show cursor as pointer on hover */
+    color: inherit;
+    font-size: 25px;
+}
+
+
+.castContainer2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    height: 250px;
+}
+
+.cast{
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    height: 225px;
+    
+}
+
+.castimg{
+    display: flex; /* Use flexbox for easy centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Adjust width as needed */
+}
+
+.castContainer2 img{
+    width: 125px;
+    height: 150px;
+    border-radius: 100px;
+}
+
+.castname h3{
+    margin:0px;
+margin-top: 5px;
+text-align: center;
+
+}
+
+.castname p{
+    margin: 0px;
+    text-align: center;
+    height: 15px;
+    font-size: 12px;
+    margin-top: 5px;
+
+    }
+
+    .movieDetail {
+        color: rgb(255, 255, 255);
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .movie{
+        margin: 0px 10px 0px 10px;
+        display: flex;
+        flex-direction: column;
+        height: 225px;
+    }
+    
+    .movieContainer2 img {
+        width: 125px;
+        height: 150px;
+        border-radius: 100px;
+    }
+
+    .movieimg{
+        display: flex; /* Use flexbox for easy centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%;
+
+    }
+    
+    .moviename h3 {
+        margin: 0px;
+        text-align: center;
+    }
+    
+    .moviename p {
+        margin: 0px;
+        text-align: center;
+        height: 15px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    
+    .castContainer2 a, .movieContainer2 a {
+        color: inherit; /* Inherit text color from parent */
+        text-decoration: none; /* Remove underline */
+    }
+    
+    .castContainer2 a:hover, .movieContainer2 a:hover {
+        text-decoration: underline; /* Add underline on hover if desired */
+    }
+
+    .movieContainer1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 30px;
+    }
+    
+    .movieContainer1 h1{
+    width: fit-content;
+    }
+    
+    .movieContainer1 button {
+        margin-left: 15px;
+        background: none; /* Remove background */
+        border: none; /* Remove border */
+        padding: 0; /* Remove padding */
+        font: inherit; /* Inherit font styles */
+        cursor: pointer; /* Show cursor as pointer on hover */
+        color: inherit;
+        font-size: 25px;
+    }
+    
+    .movieContainer2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list {
+        padding: 20px;
+        max-width: 1000px;
+        padding: 10px;
+        border-bottom: 1px solid #444;
+        transition: background-color 0.3s ease;
+        max-height: fit-content;
+    }
+    
+    .list:hover {
+        background-color: #3a3a3a;
+    }
+    
+    .year{
+        display: inline-block;
+        margin-right: 20px;
+        width: 35px;
+
+    }
+    
+    .name {
+        flex-grow: 1;
+        
+        display: inline-block;
+    }
+    
+    .name a {
+        color: #f0f0f0;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .name a:hover {
+        color: #8a747c;
+    }
+    
+    .role {
+        color: #a0a0a0;
+        font-style: italic;
+        display: inline-block;
+    }
+
+

@@ -1,0 +1,118 @@
+body {
+    background-color: #1c1c1c;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Footer CSS */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+@media (max-width: 768px) {
+    footer .container2 {
+        padding: 0 10px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+.navigation {
+display: flex;
+flex-direction: row;
+color: azure;
+}
+
+.navigation h2 {
+    margin-left:50px;
+    }
+
+ .navigation a {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: azure;
+ }
+
+ .movie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0px auto; 
+}
+
+ .card{
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    width: 225px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 320px;
+    border-radius:10px;
+}
+
+.card-info {
+    padding: 10px;
+}
+
+.card-info h3{
+height:85px;
+color:white;
+
+}
+
+.card-info .rating {
+    color: #bbbbbb;
+}
+
+.card-info h3, .card-info p {
+    margin: 5px 0;
+}
+.card-info button {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.card-info button:hover {
+    background-color: #ff8f00;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+}

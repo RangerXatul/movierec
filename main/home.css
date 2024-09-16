@@ -1,0 +1,149 @@
+body {
+    background-color: #1c1c1c;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.recommendation{
+    color: rgb(255, 255, 255);
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recommendation h1{
+    color: azure;
+    margin: 5px;
+    width: fit-content;
+}
+
+.movieContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.movieContainer button {
+    margin-left: 15px;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+    font: inherit; /* Inherit font styles */
+    cursor: pointer; /* Show cursor as pointer on hover */
+    color: azure;
+    font-size: 25px;
+}
+
+.movies-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    height: 500px;
+    margin-top: 10px;
+}
+
+.crew-container{
+    display:flex;
+    flex-direction: column;
+}
+
+/* Style for crew links */
+.crew-link {
+    color: #ffffff; /* Blue color for the link text */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Slightly larger font size */
+    font-weight: bold; /* Bold font weight */
+    display: inline-block; /* Ensure proper spacing and alignment */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transition effects */
+}
+
+/* Style for crew link on hover */
+.crew-link:hover {
+    color: #ff6f00; /* Darker blue color on hover */
+}
+
+
+.card {
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 225px;
+}
+
+.card img{
+    width: 225px;
+    height: 320px;
+    border-radius: 10px;
+}
+
+.card h4{
+    color:azure;
+    height: 50px;
+}
+
+.card p{
+    color:#bbbbbb;
+    margin: 5px;
+    font-size: 14px;
+}
+.card button{
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+
+/* Footer CSS */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+@media (max-width: 768px) {
+    footer .container2 {
+        padding: 0 10px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+}

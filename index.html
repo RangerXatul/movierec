@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaDB - Home</title>
+    <link rel="stylesheet" href="essential/index.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CinemaDB</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Genres</a></li>
+                    <li><a href="#">Top Rated</a></li>
+                    <li><a href="process/login.php">Login</a></li>
+                    <li><a href="process/signup.php">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container2">
+        <form id="searchForm" action="" method="GET">
+            <input type="text" name="query" placeholder="Search movies, cast, directors..." required>
+            <button type="button" onclick="showLoginModal()">Search</button>
+        </form>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>You must login first</h2>
+            <button onclick="window.location.href='process/login.php'">Login</button>
+            <button onclick="window.location.href='process/signup.php'">Sign Up</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CinemaDB. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showLoginModal() {
+            const query = document.querySelector('input[name="query"]').value;
+            if (query) {
+                document.getElementById('loginModal').style.display = 'block';
+            }
+        }
+
+        // Get the modal
+        var modal = document.getElementById("loginModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
