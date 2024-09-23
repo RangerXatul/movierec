@@ -61,8 +61,27 @@ function viewMoreDetails($imdbID) {
 
 function fetchOmdbData($imdbID, $apiKey) {
     $url = "http://www.omdbapi.com/?apikey=$apiKey&i=" . urlencode($imdbID);
-    return json_decode(file_get_contents($url), true);
+    
+    // Initialize cURL session
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    
+    // Execute the cURL request and get the response
+    $response = curl_exec($ch);
+    
+    // Check if any error occurred during the request
+    if (curl_errno($ch)) {
+        echo 'Error:' . curl_error($ch);
+    }
+    
+    // Close the cURL session
+    curl_close($ch);
+    
+    // Return the decoded JSON response
+    return json_decode($response, true);
 }
+
 
 function fetchTMDbData($imdbID, $token) {
     $url = "https://api.themoviedb.org/3/find/" . urlencode($imdbID) . "?external_source=imdb_id";

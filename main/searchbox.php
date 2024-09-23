@@ -88,7 +88,7 @@ form input[type="text"] {
 <div class="container9">
     <div class="container58">
         <form action="search.php" method="GET" id="search-form">
-            <input type="text" name="title" id="search-input" placeholder="Search movies, cast, directors...">
+            <input type="text" name="title" id="search-input" placeholder="Search movies">
             <button type="submit">Search</button>
             <div id="search-results" class="dropdown"></div>
         </form></div>

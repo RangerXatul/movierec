@@ -7,41 +7,60 @@
     <link rel="stylesheet" href="searchpage.css">
 </head>
 <body>
+
 <?php
 include('main-nav.php');
 include('searchbox.php');
 
-// Check if title is set
-if (isset($_GET['title'])) {
-    $title = $_GET['title'];
-    searchMovie($title);
-}
-
-// OMDB and TMDB API keys
+// OMDB API key
 $omdbApiKey = '47ec6d8e';
-$tmdbBearerToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZGMyNjA0NTYxMDU1NDFjYWJjOGNmYWJmODFhNmMyMCIsIm5iZiI6MTcyMDE1MDgyOC45MjgzMTEsInN1YiI6IjY2NWU3MmZlOGRkYzMyMGRlMjlkNjYxNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Dt4LMOnFQIGfDA9jVUFdTsl0sf9tXqdmJPxzPhvExt0';
 
 // Function to search for a movie by title using OMDB API
 function searchMovie($title) {
-    $omdbApiKey = '47ec6d8e';
+    global $omdbApiKey;
     $omdbUrl = "http://www.omdbapi.com/?apikey=$omdbApiKey&s=" . urlencode($title);
-    $omdbResponse = file_get_contents($omdbUrl);
+    
+    // Initialize cURL session
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $omdbUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+    // Execute cURL request
+    $omdbResponse = curl_exec($ch);
+    
+    // Check for cURL errors
+    if (curl_errno($ch)) {
+        echo "<p>Failed to retrieve data from OMDB: " . curl_error($ch) . "</p>";
+        curl_close($ch);
+        return;
+    }
+    
+    curl_close($ch);
+
     $omdbData = json_decode($omdbResponse, true);
 
-    if ($omdbData['Response'] == 'True') {
-        echo "<div class='container11'>";
-        foreach ($omdbData['Search'] as $movie) {
-            echo "<div class='movie'>";
-            echo "<img src='" . $movie['Poster'] . "' alt='Movie Poster'>";
-echo "<h2>" . $movie['Title'] . "</h2>";
-echo "<p>Year: " . $movie['Year'] . "</p>";
-echo "<form method='GET' action='savedb.php'>";
-echo "<input type='hidden' name='imdbID' value='" . $movie['imdbID'] . "'>";
-echo "<input type='submit' name='view' value='View'>";
-echo "</form>";
-echo "</div>";
+    // Check if 'Response' exists and is 'True'
+    if (isset($omdbData['Response']) && $omdbData['Response'] == 'True') {
+        // Check if 'Search' key exists before iterating
+        if (isset($omdbData['Search']) && is_array($omdbData['Search'])) {
+            echo "<div class='container11'>";
+            foreach ($omdbData['Search'] as $movie) {
+                echo "<div class='movie'>";
+                // Use placeholder if poster is not available
+                $poster = ($movie['Poster'] != "N/A") ? htmlspecialchars($movie['Poster']) : 'placeholder.jpg';
+                echo "<img src='" . $poster . "' alt='" . htmlspecialchars($movie['Title']) . " Poster'>";
+                echo "<h2>" . htmlspecialchars($movie['Title']) . "</h2>";
+                echo "<p>Year: " . htmlspecialchars($movie['Year']) . "</p>";
+                echo "<form method='GET' action='savedb.php'>";
+                echo "<input type='hidden' name='imdbID' value='" . htmlspecialchars($movie['imdbID']) . "'>";
+                echo "<input type='submit' name='view' value='View'>";
+                echo "</form>";
+                echo "</div>";
+            }
+            echo "</div>"; // .container11
+        } else {
+            echo "<p>No movies found!</p>";
         }
-        echo "</div>"; // .container
     } else {
         echo "<p>No movies found!</p>";
     }
@@ -50,6 +69,14 @@ echo "</div>";
     echo "<script>";
     echo "console.log('OMDB Data:', " . json_encode($omdbData) . ");";
     echo "</script>";
+}
+
+// Check if title is set and call searchMovie
+if (isset($_GET['title']) && !empty($_GET['title'])) {
+    $title = htmlspecialchars($_GET['title']);
+    searchMovie($title);
+} else {
+    echo "<p>No movie title provided!</p>";
 }
 ?>
 
@@ -69,5 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+
 </body>
 </html>
